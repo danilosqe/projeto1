@@ -2,28 +2,37 @@ package br.com.twistcodes.entity;
 
 import java.util.Set;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 
-@Entity
+import org.springframework.data.mongodb.core.mapping.Document;
+
+
+@Document
 public class User {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private String id;
+	
 	private String name;
 	private String email;
 	
-	@ManyToMany
+	
 	private Set<Role> roles;
 	
-	public Long getId() {
+	public User() {
+	}
+
+	
+	public User(String name, String email) {
+		super();
+		this.name = name;
+		this.email = email;
+	}
+
+	public String getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getName() {
@@ -39,5 +48,12 @@ public class User {
 		this.email = email;
 	}
 	
+	public Set<Role> getRoles() {
+		return roles;
+	}
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
+	}
 	
+
 }
