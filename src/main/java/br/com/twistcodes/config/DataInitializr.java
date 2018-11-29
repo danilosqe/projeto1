@@ -40,7 +40,13 @@ public class DataInitializr implements ApplicationListener<ContextRefreshedEvent
 		CapturaAcao acao = capturaAcaoRepository.findByRgm("654321");
 		System.out.println(acao.getRgm() + acao.getCodInst() + acao.getDataTransacao());
 		
-		
+		CapturaAcao novaCaptura = new CapturaAcao();
+		novaCaptura.setCodInst("987654");
+		Date dataAtual = new Date();
+		novaCaptura.setDataTransacao(dataAtual);
+		novaCaptura.setRgm("111222333");
+		novaCaptura.setUrl("www.uol.com.br");
+		createAcao(novaCaptura);
 	}
 	
 	public void createUser(String nome, String email) {
@@ -48,7 +54,8 @@ public class DataInitializr implements ApplicationListener<ContextRefreshedEvent
 		userRepository.save(user);
 	}
 	
-	public void createAcao(String rgm, String codInst, Date dataTransacao) {
-		
+	public void createAcao(CapturaAcao acao) {
+		capturaAcaoRepository.save(acao);
+		System.out.println("criado com sucesso");
 	}
 }
