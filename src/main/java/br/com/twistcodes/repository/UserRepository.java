@@ -11,6 +11,5 @@ public interface UserRepository extends MongoRepository<User, Long> {
 	
 	User findByNameIgnoreCase(String name);
 	
-	
 }
 
