@@ -47,6 +47,8 @@ public class DataInitializr implements ApplicationListener<ContextRefreshedEvent
 		novaCaptura.setRgm("111222333");
 		novaCaptura.setUrl("www.uol.com.br");
 		createAcao(novaCaptura);
+		
+		
 	}
 	
 	public void createUser(String nome, String email) {
